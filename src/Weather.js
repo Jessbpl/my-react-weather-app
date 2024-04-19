@@ -17,7 +17,7 @@ export default function Weather(props) {
       humidity: response.data.temperature.humidity,
       feels: response.data.temperature.feels_like,
       iconUrl:
-        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/shower-rain-day.png",
+        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png",
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
     });
