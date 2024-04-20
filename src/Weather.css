@@ -30,7 +30,7 @@
   align-items: center;
   display: flex;
 }
-.Weather img {
+.Weather canvas {
   height: 70px;
   margin-right: 10px;
   display: inline-block;

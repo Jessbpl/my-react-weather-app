@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
@@ -7,6 +6,7 @@ import "./Weather.css";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -16,28 +16,27 @@ export default function Weather(props) {
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
       feels: response.data.temperature.feels_like,
-      iconUrl:
-        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png",
+      icon: response.data.description.icon,
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
     });
   }
-  function search() {
-    const apiKey = "eb214ccaa33987f7248o49846e082tab";
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
-    return <h1>Loading...</h1>;
-  }
 
   function handleSubmit(event) {
     event.preventDefault(); //search for a city
-    search(city);
+    search();
   }
   function handleCityUpdate(event) {
     //I want to store the value of the input inside a state
     setCity(event.target.value);
   }
+
+  function search() {
+    const apiKey = "eb214ccaa33987f7248o49846e082tab";
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -65,5 +64,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
+    search();
+    return "Loading...";
   }
 }
