@@ -8,7 +8,6 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       city: response.data.city,
@@ -16,18 +15,18 @@ export default function Weather(props) {
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
       feels: response.data.temperature.feels_like,
-      icon: response.data.description.icon,
+      icon: response.data.condition.icon,
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
     });
   }
 
   function handleSubmit(event) {
-    event.preventDefault(); //search for a city
+    event.preventDefault();
     search();
   }
+
   function handleCityUpdate(event) {
-    //I want to store the value of the input inside a state
     setCity(event.target.value);
   }
 
