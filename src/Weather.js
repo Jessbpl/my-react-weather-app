@@ -14,7 +14,6 @@ export default function Weather(props) {
       date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
-      feels: response.data.temperature.feels_like,
       icon: response.data.condition.icon,
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
@@ -23,7 +22,7 @@ export default function Weather(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    search();
+    search(city);
   }
 
   function handleCityUpdate(event) {
