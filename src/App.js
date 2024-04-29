@@ -9,14 +9,29 @@ export default function App() {
         <Weather defaultCity="Madrid" />
 
         <footer>
-          This project was coded by Jessica Bravo and
+          This project was coded by{" "}
+          <a
+            href="https://github.com/Jessbpl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Jessica Bravo
+          </a>{" "}
+          and is{" "}
           <a
             href="https://github.com/Jessbpl/my-react-weather-app"
             target="_blank"
             rel="noopener noreferrer"
           >
-            {" "}
-            is open sourced on Github
+            open sourced on GitHub
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://app.netlify.com/sites/melodic-donut-43fc9d/overview"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            hosted on Netlify
           </a>
         </footer>
       </div>
