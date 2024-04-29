@@ -31,10 +31,8 @@
   display: flex;
 }
 .Weather canvas {
-  height: 70px;
   margin-right: 10px;
   display: inline-block;
-  width: 70px;
 }
 .Weather .temperature {
   font-weight: bolder;
